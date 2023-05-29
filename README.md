@@ -1,16 +1,18 @@
 # Fast-llama-alpaca：一键部署中文LLaMA&Alpaca大语言模型
 
-本文旨在对国内**[Chinese-LLaMA-Alpaca](https://link.zhihu.com/?target=https%3A//github.com/ymcui/Chinese-LLaMA-Alpaca)**开源项目的各个步骤进行整合优化，从而快速完成从原始LLaMA模型词表扩展、模型预训练和模型指令精调的整个过程。对各个步骤的详细解释可以参考https://zhuanlan.zhihu.com/p/631360711
+本项目旨在对国内**[Chinese-LLaMA-Alpaca](https://link.zhihu.com/?target=https%3A//github.com/ymcui/Chinese-LLaMA-Alpaca)**开源项目的各个步骤进行整合优化，从而快速完成从原始LLaMA模型词表扩展、模型预训练和模型指令精调的整个过程。对各个步骤的详细解释可以参考https://zhuanlan.zhihu.com/p/631360711
 
 
 
 首先安装需要的依赖并拉取相关项目、下载LLaMA原始模型：
 
 ```shell
+git clone git@github.com:ZeBraHack0/Fast-llama-alpaca-zh.git
+cd Fast-llama-alpaca-zh/script/train
 bash train.sh setup
 ```
 
-然后将中文此表与LLaMA原始词表进行合并：
+然后将中文词表与LLaMA原始词表进行合并：
 
 ```shell
 bash train.sh merge token
@@ -30,7 +32,7 @@ bash train.sh pretrain
 bash train.sh merge lora_pt
 ```
 
-接下来进行指令精调：这里我们使用往上开源的公开中文指令数据集（标准**[Stanford Alpaca](https://link.zhihu.com/?target=https%3A//github.com/tatsu-lab/stanford_alpaca)**格式），原始数据见https://github.com/hikariming/alpaca_chinese_dataset
+接下来进行指令精调：这里我们使用网上开源的公开中文指令数据集（标准**[Stanford Alpaca](https://link.zhihu.com/?target=https%3A//github.com/tatsu-lab/stanford_alpaca)**格式），原始数据见https://github.com/hikariming/alpaca_chinese_dataset
 
 ```shell
 bash train.sh finetune
