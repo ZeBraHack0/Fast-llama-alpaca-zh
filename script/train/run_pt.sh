@@ -7,7 +7,7 @@ lora_dropout=0.05
 
 root_dir=$(cd $(dirname $0); cd ../../; pwd)
 
-pretrained_model=${root_dir}/llama-7b-hf
+pretrained_model=${root_dir}/llama-65b-hf
 chinese_tokenizer_path=${root_dir}/output/merged_tokenizer_hf
 dataset_dir=${root_dir}/data
 data_cache=${root_dir}/cache
@@ -18,9 +18,9 @@ gradient_accumulation_steps=1
 output_dir=${root_dir}/output/llama-zh
 RANDOM=100
 
-deepspeed_config_file="${root_dir}/Chinese-LLaMA-Alpaca/scripts/ds_zero2_no_offload.json"
+deepspeed_config_file="${root_dir}/Chinese-LLaMA-Alpaca/scripts/ds_zero3_offload.json"
 
-torchrun --nnodes 1 --nproc_per_node 8 run_clm_pt_with_peft.py \
+torchrun --nnodes 1 --nproc_per_node 4 run_clm_pt_with_peft.py \
     --deepspeed ${deepspeed_config_file} \
     --model_name_or_path ${pretrained_model} \
     --tokenizer_name_or_path ${chinese_tokenizer_path} \

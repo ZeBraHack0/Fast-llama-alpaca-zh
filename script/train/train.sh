@@ -9,7 +9,7 @@ source ../include/YCOS.sh
 root_dir=$(cd $(dirname $0); cd ../../; pwd)
 echo_info "root path: ${root_dir}"
 script_dir="${root_dir}/Chinese-LLaMA-Alpaca/scripts"
-llama_tokenizer_dir="${root_dir}/llama-7b-hf"
+llama_tokenizer_dir="${root_dir}/llama-65b-hf"
 chinese_sp_model_file="${root_dir}/Chinese-LLaMA-Alpaca/scripts/chinese_sp.model"
 output_dir="${root_dir}/output"
 ####################################################
@@ -30,9 +30,12 @@ setup () {
     echo_back "pip install transformers==4.28.1 sentencepiece==0.1.97 google protobuf deepspeed datasets -i https://pypi.tuna.tsinghua.edu.cn/simple  --trusted-host pypi.tuna.tsinghua.edu.cn"
     echo_back "git clone https://github.com/ymcui/Chinese-LLaMA-Alpaca.git"
     echo_back "apt-get install git-lfs"
-    echo_back "git lfs clone https://huggingface.co/yahma/llama-7b-hf"
+    echo_back "git lfs clone https://huggingface.co/yahma/llama-65b-hf"
     echo_back "mkdir cache"
     echo_back "mkdir output"
+    echo_back "git clone https://github.com/huggingface/peft.git"
+    echo_back "cd peft"
+    echo_back "pip install . -i https://pypi.tuna.tsinghua.edu.cn/simple  --trusted-host pypi.tuna.tsinghua.edu.cn"
 }
 
 merge_tokenizers() {
@@ -71,12 +74,14 @@ merge () {
 
 pretrain_lora() {
     echo_back "cp run_pt.sh ${script_dir}"
+    echo_back "cp ds_zero3_offload.json ${script_dir}"
     echo_back "cp run_clm_pt_with_peft.py ${script_dir}"
     echo_back "bash ${script_dir}/run_pt.sh"
 }
 
 finetune_lora() {
     echo_back "cp run_sft.sh ${script_dir}"
+    echo_back "cp ds_zero3_offload.json ${script_dir}"
     echo_back "cp run_clm_sft_with_peft.py ${script_dir}"
     echo_back "cd ${script_dir}"
     echo_back "bash ${script_dir}/run_sft.sh"

@@ -336,7 +336,7 @@ def main():
             revision=model_args.model_revision,
             use_auth_token=True if model_args.use_auth_token else None,
             torch_dtype=torch_dtype,
-            low_cpu_mem_usage=True
+            low_cpu_mem_usage=False
         )
 
     else:

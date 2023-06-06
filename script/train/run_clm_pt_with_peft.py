@@ -527,8 +527,9 @@ def main():
             revision=model_args.model_revision,
             use_auth_token=True if model_args.use_auth_token else None,
             torch_dtype=torch_dtype,
-            low_cpu_mem_usage=True
+            low_cpu_mem_usage=False
         )
+        print(torch_dtype)
     else:
         model = AutoModelForCausalLM.from_config(config)
         n_params = sum({p.data_ptr(): p.numel() for p in model.parameters()}.values())
