@@ -11,7 +11,7 @@ git clone git@github.com:ZeBraHack0/Fast-llama-alpaca-zh.git
 cd Fast-llama-alpaca-zh/script/train
 bash train.sh setup
 ```
-需要注意的是，如果已经下载好模型，可以注释掉脚本中的下载部分，并将模型文件软连接到项目目录下
+需要注意的是，如果已经下载好模型（huggingface格式），可以注释掉脚本中的下载部分，并将模型文件软连接到项目目录下
 
 然后将中文词表与LLaMA原始词表进行合并：
 
