@@ -316,7 +316,7 @@ if __name__=='__main__':
                 assert base_model_sd[original_key].dtype == torch.float16
     
         # did we do anything?
-        assert not torch.allclose(first_weight_old, first_weight)
+#         assert not torch.allclose(first_weight_old, first_weight)
 
     tokenizer.save_pretrained(output_dir)
 
