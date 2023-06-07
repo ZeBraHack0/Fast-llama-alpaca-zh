@@ -18,7 +18,7 @@ gradient_accumulation_steps=1
 output_dir=${root_dir}/output/llama-zh
 RANDOM=100
 
-deepspeed_config_file="${root_dir}/Chinese-LLaMA-Alpaca/scripts/ds_zero3_offload.json"
+deepspeed_config_file="${root_dir}/Chinese-LLaMA-Alpaca/scripts/ds_zero3_offload_pt.json"
 
 torchrun --nnodes 1 --nproc_per_node 4 run_clm_pt_with_peft.py \
     --deepspeed ${deepspeed_config_file} \

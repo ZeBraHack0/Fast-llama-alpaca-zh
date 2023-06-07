@@ -18,7 +18,7 @@ output_dir=${root_dir}/output/llama-alpaca-zh
 # peft_model=path/to/peft/model/dir
 validation_file=${root_dir}/data/alpaca_data.json
 
-deepspeed_config_file=${root_dir}/Chinese-LLaMA-Alpaca/scripts/ds_zero3_offload.json
+deepspeed_config_file=${root_dir}/Chinese-LLaMA-Alpaca/scripts/ds_zero3_offload_sft.json
 
 torchrun --nnodes 1 --nproc_per_node 4 run_clm_sft_with_peft.py \
     --deepspeed ${deepspeed_config_file} \
