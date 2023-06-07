@@ -35,6 +35,7 @@ setup () {
     echo_back "mkdir output"
     echo_back "git clone https://github.com/huggingface/peft.git"
     echo_back "cd peft"
+    echo_back "git checkout 13e53fc"
     echo_back "pip install . -i https://pypi.tuna.tsinghua.edu.cn/simple  --trusted-host pypi.tuna.tsinghua.edu.cn"
 }
 
