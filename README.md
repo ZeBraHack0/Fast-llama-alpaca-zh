@@ -24,7 +24,7 @@ bash train.sh merge token
 bash train.sh pretrain
 ```
 
-若遇到报错“ModuleNotFoundError:No module named 'torch._six'”，可参考https://blog.csdn.net/qq_24502827/article/details/130195645进行解决
+若遇到报错“ModuleNotFoundError:No module named 'torch._six'”，可参考https://blog.csdn.net/qq_24502827/article/details/130195645 进行解决
 
 训练完成后对lora模型与原始LLaMA模型进行合并：
 
