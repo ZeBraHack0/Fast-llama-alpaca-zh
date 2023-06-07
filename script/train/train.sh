@@ -43,7 +43,7 @@ merge_tokenizers() {
 
 merge_lora_pt() {
     echo_back "cp merge_llama_with_chinese_lora.py ${script_dir}"
-    echo_back "python merge_llama_with_chinese_lora.py --base_model ${llama_tokenizer_dir} --tokenizer_path ${output_dir}/merged_tokenizer_hf --lora_model ${output_dir}/lora --output_type huggingface --output_dir ${output_dir}/merge-lora-hf"
+    echo_back "python merge_llama_with_chinese_lora.py --base_model ${llama_tokenizer_dir} --tokenizer_path ${output_dir}/merged_tokenizer_hf --lora_model ${output_dir}/llama-zh/lora --output_type huggingface --output_dir ${output_dir}/merge-lora-hf"
 }
 
 merge_lora_sft() {
