@@ -27,12 +27,16 @@ show_usage() {
 
 setup () {
     echo_back "cd ../../"
-    echo_back "pip install transformers==4.28.1 sentencepiece==0.1.97 google protobuf deepspeed=0.9.2 datasets -i https://pypi.tuna.tsinghua.edu.cn/simple  --trusted-host pypi.tuna.tsinghua.edu.cn"
+    echo_back "pip install transformers==4.28.1 sentencepiece==0.1.97 google protobuf deepspeed==0.9.2 datasets -i https://pypi.tuna.tsinghua.edu.cn/simple  --trusted-host pypi.tuna.tsinghua.edu.cn"
     echo_back "git clone https://github.com/ymcui/Chinese-LLaMA-Alpaca.git"
     echo_back "apt-get install git-lfs"
     echo_back "git lfs clone https://huggingface.co/yahma/llama-7b-hf"
     echo_back "mkdir cache"
     echo_back "mkdir output"
+    echo_back "git clone https://github.com/huggingface/peft.git"
+    echo_back "cd peft"
+    echo_back "git checkout 13e53fc"
+    echo_back "pip install . -i https://pypi.tuna.tsinghua.edu.cn/simple  --trusted-host pypi.tuna.tsinghua.edu.cn"
 }
 
 merge_tokenizers() {
